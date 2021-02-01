@@ -16,10 +16,20 @@ namespace Client
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            var num = int.Parse(TextBox1.Text);
             var client = new Service.ServiceClient("BasicHttpBinding_IService");
-            Label1.Text = client.GetNumber(num);
-            client.Close();
+            var num = int.Parse(TextBox1.Text);
+            try
+            {
+                Label1.Text = client.GetNumber(num);
+            }
+            catch (Exception )
+            {
+               
+            }
+            finally
+            {
+                client.Close();
+            }
         }
     }
 }

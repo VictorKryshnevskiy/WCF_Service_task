@@ -22,6 +22,10 @@ namespace WCF_Service_task
 
         public string GetNumber(int number)
         {
+            if (number % 2 != 0 || number == 0)
+            {
+                return "Введите четное число";
+            }
             var num = Math.Pow(number, 2).ToString();
             return JsonSerializer.Serialize(num);
             
